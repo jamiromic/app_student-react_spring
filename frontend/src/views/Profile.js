@@ -58,7 +58,12 @@ export default class Profile extends Component {
         <strong>Tipo di autorizzazione:</strong>
         <ul>
           {currentUser.roles &&
-            currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
+            currentUser.roles.map((role, index) => 
+            <li key={index}>
+              {role === 'ROLE_USER' && 'Utente'}
+              {role === 'ROLE_ADMIN' && 'Amministratore'}
+              {role === 'ROLE_MODERATOR' && 'Moderatore'}
+            </li>)}
         </ul>
       </div>: null}
       </div>
