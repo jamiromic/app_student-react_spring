@@ -10,6 +10,7 @@ import appstudents.example.security.models.ERole;
 import appstudents.example.security.models.Role;
 
 
+@SuppressWarnings("unused")
 public interface RoleRepository extends JpaRepository<Role, Long> {
   Optional<Role> findByName(ERole name);
 }
