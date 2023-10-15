@@ -5,7 +5,7 @@ FROM openjdk:17
 WORKDIR /app
 
 # Copia il file JAR del tuo backend Spring Boot nell'immagine
-COPY target/backend.jar /app/app.jar
+COPY target/backend-0.0.1-SNAPSHOT.jar /app/app.jar
 
 # Avvia il backend Spring Boot
 CMD ["java", "-jar", "app.jar"]
