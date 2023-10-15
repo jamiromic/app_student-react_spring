@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  frontend:
+    build:
+      context: ./frontend  # Directory del Dockerfile del frontend
+    ports:
+      - 3000:3000
+
+  backend:
+    build:
+      context: ./backend  # Directory del Dockerfile del backend
+    ports:
+      - 8080:8080
+    depends_on:
+      - database
+
+  database:
+    image: mysql:latest
+    environment:
+      MYSQL_USER: root
+      MYSQL_DATABASE: studentsapp
