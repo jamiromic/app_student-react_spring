@@ -6,6 +6,8 @@ services:
       context: ./frontend  # Directory del Dockerfile del frontend
     ports:
       - 3000:3000
+    volumes:
+      - frontend_vol_appstudents:/dati/frontend
     depends_on:
       - backend
 
@@ -14,6 +16,8 @@ services:
       context: ./backend  # Directory del Dockerfile del backend
     ports:
       - 8080:8080
+    volumes:
+      - backend_vol_appstudents:/dati/backend
     depends_on:
       database:
         condition: service_healthy
@@ -29,7 +33,14 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     ports:
       - "3306:3306"
+    volumes:
+      - database_vol_appstudents:/var/lib/mysql
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 20s
       retries: 10
+
+volumes:
+  frontend_vol_appstudents:  # Definizione del volume frontend
+  backend_vol_appstudents:   # Definizione del volume backend
+  database_vol_appstudents:  # Definizione del volume database

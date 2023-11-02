@@ -30,7 +30,7 @@ function StudentList() {
         text='Torna alla Home'
         url='/'
         bgcolor='rgb(255, 232, 127)'
-        color='black'
+        color='white'
       />
       <ButtonElement
         text='Crea un nuovo Studente'
