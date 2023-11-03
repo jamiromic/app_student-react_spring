@@ -1,5 +1,5 @@
-# Usa un'immagine base Node.js per il frontend
-FROM node:18-alpine
+# Usa un'immagine base di Node.js
+FROM node:latest
 
 # Imposta la directory di lavoro nel contenitore
 WORKDIR /app
@@ -9,6 +9,9 @@ COPY . /app
 
 # Installa le dipendenze
 RUN npm install
+RUN apt-get update && \
+    apt-get -y install git
 
 # Avvia l'app React
 CMD ["npm", "start"]
+
